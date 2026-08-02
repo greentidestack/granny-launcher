@@ -1,10 +1,12 @@
+
+
 <!-- granny :)))) ❤ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Granny Launcher</title>
+<title>Granny 1 Launcher</title>
 
 <link rel="icon" href="https://play-lh.googleusercontent.com/P8BbkQ6m0eCYYAx2tXTESBiIDQ2RESsSQp6oD8ZAP35rmEjmaXHMboYT6P807sAnfcuskKTdYbTyH5R0GCFk8Q">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -184,6 +186,7 @@ body::before {
     transition:
         transform 0.2s ease,
         filter 0.2s ease;
+    filter: brightness(50%);
 }
 
 #bearTrap:hover {
@@ -354,6 +357,8 @@ body::before {
         <option value="yandex">Yandex</option>
         <option value="original">Original</option>
         <option value="pcport">PC Web Port</option>
+        <option value="mobileport">Mobile Port</option>
+        <option value="yandex2">Yandex 2</option>
     </select>
 
     <button class="play-btn" id="launchBtn">
@@ -395,13 +400,35 @@ body::before {
         </div>
 
         <div class="version-content">
-            Granny PC Version 1.7, has much better graphics and is more updated but some bugs and less sound effects
+            PC PORT IS BLOCKEDDDDDDD 😭 Granny PC Version 1.7, has much better graphics and is more updated but some bugs and less sound effects
+        </div>
+    </div>
+
+    <div class="version-note">
+        <div class="version-header">
+            <i class="fa-solid fa-caret-right"></i>
+            <span>Mobile Port</span>
+        </div>
+
+        <div class="version-content">
+            A port of the mobile version of Granny 1.7. Controls are horrible and has ads, not recommended
+        </div>
+    </div>
+
+    <div class="version-note">
+        <div class="version-header">
+            <i class="fa-solid fa-caret-right"></i>
+            <span>Yandex 2</span>
+        </div>
+
+        <div class="version-content">
+            A slightly different version of Yandex 1, different main menu but gameplay is the same. The advantage of this one is the games' sound still plays after pausing the game.
         </div>
     </div>
 </div>
 
 <div id="embedContainer">
-    <object data="https://app-259805.games.s3.yandex.net/259805/fadb3yakgje68vxwmy7a1khmb3vj9vxc_brotli/index.html?sdk=%2Fsdk%2F_%2Fv2.97c96d6acac215f69e1d.js#origin=https%3A%2F%2Fyandex.com&app-id=259805&device-type=desktop"></object>
+    <object data="https://app-259805.games.s3.yandex.net/259805/fadb3yakgje68vxwmy7a1khmb3vj9vxc_brotli/index.html?sdk=%2Fsdk%2F_%2Fv2.97c96d6acac215f69e1d.js#origin=https%3A%2F%2Fyandex.com&app-id=259805&device-type=desktop" style="width: 100%; height: 100%; border: none;"></object>
 </div>
 
 <script> 
@@ -429,6 +456,11 @@ document.getElementById("launchBtn").addEventListener("click", () => {
             "https://app-259805.games.s3.yandex.net/259805/fadb3yakgje68vxwmy7a1khmb3vj9vxc_brotli/index.html?sdk=%2Fsdk%2F_%2Fv2.97c96d6acac215f69e1d.js#origin=https%3A%2F%2Fyandex.com&app-id=259805&device-type=desktop";
     }
 
+    if (version === "yandex2") {
+        gameFrame.data = 
+            "https://st.8games.net/7/igra-grenni-original/";
+    }
+
     if (version === "original") {
         gameFrame.data =
             "http://granny.gg/content/uploads/granny/index.html";
@@ -439,8 +471,15 @@ document.getElementById("launchBtn").addEventListener("click", () => {
 
     if (version === "pcport") {
         gameFrame.data = 
-            "https://greentidestack.github.io/unexpectedpillow2323";
+            "https://horrorgames.io/granny-horror.embed";
             // https://granny1.io/granny.embed
+            // https://1games.io/game/granny-horror/ (alt if granny1.io stops working)
+            // horrorgames.io/granny-horror.embed (alt 2)
+            // https://games.yoplay.io/granny-horror/?v=1 (alt 3)
+    }
+
+    if (version === "mobileport" ) {
+        gameFrame.data = "http://cdn.vietdp.com/file/vietdp-games/games/t12026/granny-3/index.html";
     }
 
     document.getElementById("embedContainer").style.display = "block";
@@ -534,3 +573,4 @@ document.querySelectorAll(".version-header").forEach(header => {
 
 </body>
 </html>
+
