@@ -1,0 +1,578 @@
+
+
+<!-- granny :)))) ❤ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Granny 1 Launcher</title>
+
+<link rel="icon" href="https://play-lh.googleusercontent.com/P8BbkQ6m0eCYYAx2tXTESBiIDQ2RESsSQp6oD8ZAP35rmEjmaXHMboYT6P807sAnfcuskKTdYbTyH5R0GCFk8Q">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quintessential:ital,wght@0,100..900;1,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&family=Special+Elite&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url("https://i.imgur.com/1NgHZDZ.png"), default!important;
+    user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+    font-family: Quintessential, sans-serif;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    cursor: url("https://i.imgur.com/1NgHZDZ.png"), default!important;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cursor {
+    cursor: url("https://i.imgur.com/1NgHZDZ.png"), default!important;
+}
+
+#bg {
+    position: fixed;
+    inset: -2%;
+    z-index: -1;
+    background:
+        url('https://i.imgur.com/XOe5sXh.jpeg')
+        center center / cover no-repeat;
+    transition: transform 0.15s ease-out;
+    filter: blur(2px);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+}
+
+.play-btn {
+    top: 190px;
+    left: 450px;
+    position: relative;
+    z-index: 2;
+    padding: 5px 15px;
+    border: 2px solid #fff;
+    border-radius: 0px;
+    background: transparent;
+    color: #fff;
+    font-size: 34px;
+    font-family: Quintessential;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.play-btn:active {
+    color: #dedddd;
+    border: 2px solid #dedddd;
+}
+
+#embedContainer {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+}
+
+#embedContainer object { 
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#bearTrap {
+    position: fixed;
+    bottom: 45px;
+    left: 700px;
+    width: 120px;
+    z-index: 2;
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+    filter: brightness(50%);
+    filter: blur(2px);
+}
+
+#bearTrap:hover {
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+}
+
+#bearTrap.closed {
+    /* Filler */
+    filter: blur(2px);
+}
+
+@keyframes trapSnap {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+#musicPrompt {
+    font-family: Quintessential;
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow:
+        0 0 5px rgba(255,255,255,0.8),
+        0 0 15px rgba(255,255,255,0.5);
+}
+
+#musicPrompt.hide {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+#bg,
+#bearTrap {
+    transition: transform 0.3s cubic-bezier(.22,.61,.36,1);
+}
+
+.info {
+    position: fixed;
+    bottom: 30%;
+    left: 475px;
+    z-index: 2;
+    width: 300px;
+    height: 150px;
+    padding: 15px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 0px;
+}
+
+.version-select {
+    width: 100px;
+    height: 32px;
+    font-size: .85rem;
+    background: #fff;
+    border-radius: 4px;
+    color: #000;
+    font-weight: bold;
+    outline: none;
+    font-family: Arial;
+    transition: 0.2s all ease;
+}
+
+.version-select:hover {
+    background: #c5c5c5;
+}
+
+.launch-row {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.version-note {
+    margin-top: 8px;
+}
+
+.version-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+}
+
+.version-content {
+    margin-left: 18px;
+    font-size: 0.9rem;
+    font-family: Quintessential;
+    margin-top: 6px;
+    opacity: 1;
+}
+
+.options-header {
+    font-family: Quintessential;
+    text-decoration: underline;
+    font-style: italic;
+    color: #b3b3b3;
+    font-size: 40px;
+    position: fixed;
+    top: 10px;
+    left: 30px;
+}
+
+.back-btn {
+    top: 250px;
+    right: 450px;
+    position: relative;
+    z-index: 2;
+    padding: 5px 15px;
+    border: 2px solid #fff;
+    border-radius: 0px;
+    background: transparent;
+    color: #fff;
+    font-size: 34px;
+    font-family: Quintessential;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.back-btn:active {
+    color: #dedddd;
+    border: 2px solid #dedddd;
+}
+.custom-checkbox {
+    display: inline-block;
+    width: 20px; 
+    height: 20px; 
+    background-color: #f0f0f0; 
+    border-radius: 4px; 
+    position: relative;
+    transition: 0.2s all ease;
+}
+
+/* input[type="checkbox"]:checked + .custom-checkbox {
+    background-color: #4CAF50; 
+    border-color: #4CAF50;
+} */
+
+.custom-checkbox:active {
+    background-color: #c5c5c5;
+    border-color: #c5c5c5; 
+}
+
+.custom-checkbox::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px; 
+    width: 5px; 
+    height: 10px; 
+    border: solid black; /* Change this to your desired checkmark color */
+    border-width: 0 2px 2px 0; 
+    transform: rotate(45deg); 
+    opacity: 0; 
+}
+
+input[type="checkbox"]:checked + .custom-checkbox::after {
+    opacity: 1; 
+}
+
+#dynamicText {
+    text-align: center; /* Center-align the text */
+    margin: 0 auto; /* Optional: Center the element itself if needed */
+}
+
+</style>
+</head>
+<body>
+<h1 class="options-header">Launcher options</h1>
+
+<button class="back-btn" id="back"><i class="fa-solid fa-angle-left" style="margin-right: 5px;"></i>Back</button>
+
+<div id="bg"></div>
+
+<audio id="menuMusic" loop> <!-- Main menu music -->
+    <source src="https://www.image2url.com/r2/default/audio/1782163629626-5d13d2b5-e679-4fd6-99c6-03118956ecd2.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="beartrap" preload="auto"> <!-- Beartrp sound -->
+    <source src="https://www.image2url.com/r2/default/audio/1782163592949-7fc0cf5c-e9b1-4764-80e4-9bdcf467656a.wav" type="audio/mpeg">
+</audio>
+
+<div id="musicPrompt">
+    Click anywhere to activate music
+</div>
+
+<div id="settings" style="position: absolute; top: 20px; right: 50px;">
+    <label style="display: inline-block; text-align: center; margin-left: 20px;">
+        <input type="checkbox" id="enableMusic" checked style="display: none;">
+        <span class="custom-checkbox"></span>
+        <div>Music</div>
+    </label>
+    <label style="display: inline-block; text-align: center; margin-left: 20px;">
+        <input type="checkbox" id="enableSound" checked style="display: none;">
+        <span class="custom-checkbox"></span>
+        <div>Sound</div>
+    </label>
+</div>
+
+<div class="launch-row" style="position: fixed; left: 300px; bottom: 45%; transform: translateY(50%); flex-direction: column; align-items: flex-start; gap: 5px;">
+    <h1 style="text-align: center;">Version</h1>
+    <select id="versionSelect" class="version-select">
+        <option value="yandex">Yandex</option>
+        <option value="original">Original</option>
+        <option value="pcport">PC Web Port</option>
+        <option value="mobileport">Mobile Port</option>
+        <option value="yandex2">Yandex 2</option>
+    </select>
+</div>
+
+<button class="play-btn" id="launchBtn">
+    Continue <i class="fa-solid fa-angle-right" style="margin-left: 5px;"></i>
+</button>
+
+<img id="bearTrap" src="https://i.imgur.com/EH1gYFk.png" alt="Bear Trap">
+
+<div class="info">
+    <h3 style="text-align: center; text-decoration: underline;">Version Notes: <span id="dynamicHeaderTitle">Yandex</span></h3>
+    <div class="version-note">
+        <div class="version-header">
+            <span id="dynamicTitle" style="display: none;">Yandex</span>
+        </div>
+        <div class="version-content" id="dynamicText">
+            *recommended* Faster crouch movement, you can hide under tables and cabinets, and sound still plays after clicking off the game
+        </div>
+    </div>
+</div>
+
+<div id="embedContainer">
+    <object data="https://app-259805.games.s3.yandex.net/259805/fadb3yakgje68vxwmy7a1khmb3vj9vxc_brotli/index.html?sdk=%2Fsdk%2F_%2Fv2.97c96d6acac215f69e1d.js#origin=https%3A%2F%2Fyandex.com&app-id=259805&device-type=desktop" style="width: 100%; height: 100%; border: none;"></object>
+</div>
+
+<script> 
+const versionInfoData = {
+    yandex: {
+        title: "Yandex",
+        text: "*Recommended version<br>*Faster crouch movement<br>*Hide under tables and cabinets<br>*Sound plays after pausing the game"
+    },
+    original: {
+        title: "Original",
+        text: "*Stable version<br>*No ads or bloat<br>*None of Yandex's features except sound"
+    },
+    pcport: {
+        title: "PC Port",
+        text: "PC PORT IS BLOCKEDDDDDDD 😭<br>*Granny PC Version 1.7<br>*Much better graphics<br>*Some bugs and less sound effects"
+    },
+    mobileport: {
+        title: "Mobile Port",
+        text: "*Mobile version Granny 1.7<br>*Controls are horrible<br>*Has ads<br>*Not recommended"
+    },
+    yandex2: {
+        title: "Yandex 2",
+        text: "*Slightly different version of Yandex 1<br>*Different main menu<br>*Gameplay is the same<br>*Sound does not play after pausing the game."
+    }
+};
+
+const versionSelect = document.getElementById("versionSelect");
+const dynamicHeaderTitle = document.getElementById("dynamicHeaderTitle");
+const dynamicTitle = document.getElementById("dynamicTitle");
+const dynamicText = document.getElementById("dynamicText");
+
+function updateVersionInfo(selectedKey) {
+    const data = versionInfoData[selectedKey];
+    if (data) {
+        dynamicText.style.opacity = 0;
+        setTimeout(() => {
+            dynamicHeaderTitle.textContent = data.title;
+            dynamicTitle.textContent = data.title;
+            dynamicText.innerHTML = data.text;
+            dynamicText.style.opacity = 1;
+        }, 150);
+    }
+}
+
+
+// local storge version saving
+const savedVersion = localStorage.getItem("SelectedVersion");
+if (savedVersion) {
+    versionSelect.value = savedVersion;
+    updateVersionInfo(savedVersion);
+} else {
+    updateVersionInfo(versionSelect.value);
+}
+
+versionSelect.addEventListener("change", () => {
+    localStorage.setItem("SelectedVersion", versionSelect.value);
+    updateVersionInfo(versionSelect.value);
+});
+
+// Open selected game embed
+document.getElementById("launchBtn").addEventListener("click", () => {
+    const version = document.getElementById("versionSelect").value;
+    localStorage.setItem("SelectedVersion", version);
+
+    const gameFrame = document.querySelector("#embedContainer object");
+
+    if (version === "yandex") {
+        gameFrame.data =
+            "https://st.8games.net/7/igra-grenni-original/";
+    }
+
+    if (version === "yandex2") {
+        gameFrame.data = 
+            "https://app-259805.games.s3.yandex.net/259805/fadb3yakgje68vxwmy7a1khmb3vj9vxc_brotli/index.html?sdk=%2Fsdk%2F_%2Fv2.97c96d6acac215f69e1d.js#origin=https%3A%2F%2Fyandex.com&app-id=259805&device-type=desktop";
+    }
+
+    if (version === "original") {
+        gameFrame.data =
+            "http://granny.gg/content/uploads/granny/index.html";
+            // old links i used:
+            // https://grannyfree.io/play/granny/ original, but its an iframe
+            // https://a.luminsdk.com/g/1782245938-zvb9IWFpeBv1Yjnr2wvlKNlEiJz1KQwrELC6eT839lU/selenite/granny1/index.html doesnt work bc of cloudflare
+    }
+
+    if (version === "pcport") {
+        gameFrame.data = 
+            "https://horrorgames.io/granny-horror.embed";
+            // https://granny1.io/granny.embed
+            // https://1games.io/game/granny-horror/ (alt if granny1.io stops working)
+            // horrorgames.io/granny-horror.embed (alt 2)
+            // https://games.yoplay.io/granny-horror/?v=1 (alt 3)
+            // http://greentidestack.github.io/GrannyWeb-fork/index.html (horrible port but works... kinda)
+    }
+
+    if (version === "mobileport" ) {
+        gameFrame.data = "http://cdn.vietdp.com/file/vietdp-games/games/t12026/granny-3/index.html";
+    }
+
+    document.getElementById("embedContainer").style.display = "block";
+});
+
+
+
+// Bear trap click
+const trap = document.getElementById("bearTrap");
+const beartrapAudio = document.getElementById("beartrap");
+beartrapAudio.volume = 1; 
+
+trap.addEventListener("click", () => {
+    if (trap.classList.contains("closed")) return;
+    if (enableSoundCheckbox.checked) { 
+        beartrapAudio.currentTime = 0;
+        beartrapAudio.play();
+    }
+    trap.src = "https://i.imgur.com/NLG0GdO.png";
+    trap.style.width = "75px";
+    trap.style.left = "723px";
+    trap.classList.add("closed");
+});
+
+// Main menu music
+const menuMusic = document.getElementById("menuMusic");
+const musicPrompt = document.getElementById("musicPrompt");
+
+document.addEventListener("click", (e) => {
+    if (e.target.closest("#launchBtn")) {
+        musicPrompt.classList.add("hide");
+
+        setTimeout(() => {
+            musicPrompt.remove();
+        }, 400);
+
+        return;
+    }
+
+    if (enableMusicCheckbox.checked) { 
+        menuMusic.play();
+    }
+
+    musicPrompt.classList.add("hide");
+
+    setTimeout(() => {
+        musicPrompt.remove();
+    }, 400);
+}, { once: true });
+
+document.getElementById("launchBtn").addEventListener("click", () => {
+    const version = document.getElementById("versionSelect").value;
+
+    document.title = versionTitles[version] || "Granny 1 Launcher"; 
+
+    if (enableMusicCheckbox.checked) {
+        menuMusic.pause();
+        menuMusic.currentTime = 0;
+    }
+
+    document.getElementById("embedContainer").style.display = "block";
+
+    window.addEventListener('beforeunload', function (event) {
+            event.preventDefault();
+            event.returnValue = ''; 
+        });
+});
+
+// Parallax effect
+const bg = document.getElementById("bg");
+document.addEventListener("mousemove", (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 5;
+    const y = (e.clientY / window.innerHeight - 0.5) * 5;
+
+    bg.style.transform = `translate(${-x}px, ${-y}px)`;
+    trap.style.transform = `translate(${-x}px, ${-y}px)`;
+});
+
+document.getElementById("back").addEventListener("click", function() {
+    window.location.href = "granny1-original.html"; 
+});
+
+const enableSoundCheckbox = document.getElementById("enableSound");
+const enableMusicCheckbox = document.getElementById("enableMusic");
+
+const savedSoundState = localStorage.getItem("enableSound");
+const savedMusicState = localStorage.getItem("enableMusic");
+
+if (savedSoundState !== null) {
+    enableSoundCheckbox.checked = savedSoundState === 'true'; 
+}
+
+if (savedMusicState !== null) {
+    enableMusicCheckbox.checked = savedMusicState === 'true'; 
+}
+
+enableSoundCheckbox.addEventListener("change", () => {
+    if (enableSoundCheckbox.checked) {
+        beartrapAudio.volume = 1; 
+        localStorage.setItem("enableSound", 'true'); 
+    } else {
+        beartrapAudio.volume = 0; 
+        localStorage.setItem("enableSound", 'false'); 
+    }
+});
+
+enableMusicCheckbox.addEventListener("change", () => {
+    if (enableMusicCheckbox.checked) {
+        menuMusic.play();
+        localStorage.setItem("enableMusic", 'true'); 
+    } else {
+        menuMusic.pause(); 
+        localStorage.setItem("enableMusic", 'false'); 
+    }
+});
+
+const versionTitles = {
+    yandex: "Playing Granny...",
+    original: "Playing Granny Original...",
+    pcport: "Playing Granny PC...",
+    mobileport: "Playing Granny Mobile...",
+    yandex2: "Playing Granny..."
+};
+
+
+</script>
+
+</body>
+</html>
+
