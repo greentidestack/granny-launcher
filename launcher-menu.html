@@ -451,13 +451,13 @@ function showLoadingScreen() {
         dots++;
         if (dots > 3) dots = 1;
         loadingText.textContent = "Loading" + ".".repeat(dots);
-    }, 250);
+    }, 150);
 
     loadingTimeout = setTimeout(() => {
         clearInterval(loadingInterval);
         loadingInterval = null;
         loadingScreen.style.display = "none";
-    }, 3500);
+    }, 2000);
 }
 
 document.getElementById("launchBtn").addEventListener("click", () => {
