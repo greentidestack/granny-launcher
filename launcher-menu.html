@@ -270,7 +270,7 @@ body::before {
     top: 2px; 
     width: 5px; 
     height: 10px; 
-    border: solid black; /* Change this to your desired checkmark color */
+    border: solid black; 
     border-width: 0 2px 2px 0; 
     transform: rotate(45deg); 
     opacity: 0; 
@@ -281,8 +281,28 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 }
 
 #dynamicText {
-    text-align: center; /* Center-align the text */
-    margin: 0 auto; /* Optional: Center the element itself if needed */
+    text-align: center; 
+    margin: 0 auto;
+}
+
+
+#loadingScreen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 1000000;
+    display: none;
+}
+
+#loadingText {
+    position: absolute;
+    right: 25px;
+    bottom: 20px;
+    color: #fff;
+    font-family: Quintessential, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 </style>
@@ -352,6 +372,10 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     <object data="https://app-259805.games.s3.yandex.net/259805/fadb3yakgje68vxwmy7a1khmb3vj9vxc_brotli/index.html?sdk=%2Fsdk%2F_%2Fv2.97c96d6acac215f69e1d.js#origin=https%3A%2F%2Fyandex.com&app-id=259805&device-type=desktop" style="width: 100%; height: 100%; border: none;"></object>
 </div>
 
+<div id="loadingScreen">
+    <div id="loadingText">Loading.</div>
+</div>
+
 <script> 
 const versionInfoData = {
     yandex: {
@@ -409,7 +433,33 @@ versionSelect.addEventListener("change", () => {
     updateVersionInfo(versionSelect.value);
 });
 
-// Open selected game embed
+// The loading scren
+const loadingScreen = document.getElementById("loadingScreen");
+const loadingText = document.getElementById("loadingText");
+let loadingInterval = null;
+let loadingTimeout = null;
+
+function showLoadingScreen() {
+    clearInterval(loadingInterval);
+    clearTimeout(loadingTimeout);
+
+    let dots = 1;
+    loadingText.textContent = "Loading.";
+    loadingScreen.style.display = "block";
+
+    loadingInterval = setInterval(() => {
+        dots++;
+        if (dots > 3) dots = 1;
+        loadingText.textContent = "Loading" + ".".repeat(dots);
+    }, 250);
+
+    loadingTimeout = setTimeout(() => {
+        clearInterval(loadingInterval);
+        loadingInterval = null;
+        loadingScreen.style.display = "none";
+    }, 3500);
+}
+
 document.getElementById("launchBtn").addEventListener("click", () => {
     const version = document.getElementById("versionSelect").value;
     localStorage.setItem("SelectedVersion", version);
@@ -449,6 +499,7 @@ document.getElementById("launchBtn").addEventListener("click", () => {
     }
 
     document.getElementById("embedContainer").style.display = "block";
+    showLoadingScreen();
 });
 
 
@@ -505,8 +556,6 @@ document.getElementById("launchBtn").addEventListener("click", () => {
         menuMusic.pause();
         menuMusic.currentTime = 0;
     }
-
-    document.getElementById("embedContainer").style.display = "block";
 
     window.addEventListener('beforeunload', function (event) {
             event.preventDefault();
