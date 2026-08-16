@@ -10,9 +10,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Quintessential:ital,wght@0,100..900;1,100..900&display=swap'); 
-@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quintessential&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,100..900;1,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap');
 
 * {
@@ -27,7 +28,8 @@ html, body {
     width: 100%;
     height: 100%;
     /* overflow: hidden; */
-    font-family: Quintessential, sans-serif;
+    font-family: Apple Chancery, Merriweather, sans-serif;
+    font-style: italic;
     color: white;
     font-weight: bold;
     margin: 0;
@@ -73,7 +75,8 @@ body::before {
     background: transparent;
     color: #fff;
     font-size: 34px;
-    font-family: Quintessential;
+    font-family: Apple Chancery, Merriweather;
+    font-style: italic;
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
@@ -127,7 +130,8 @@ body::before {
 }
 
 #musicPrompt {
-    font-family: Quintessential;
+    font-family: Apple Chancery, Merriweather;
+    font-style: italic;
     position: fixed;
     top: 25px;
     left: 50%;
@@ -204,13 +208,15 @@ body::before {
 .version-content {
     margin-left: 18px;
     font-size: 0.9rem;
-    font-family: Quintessential;
+    font-family: Apple Chancery, Merriweather;
+    font-style: italic;
     margin-top: 6px;
     opacity: 1;
 }
 
 .options-header {
-    font-family: Quintessential;
+    font-family: Apple Chancery, Merriweather;
+    font-style: italic;
     text-decoration: underline;
     font-style: italic;
     color: #b3b3b3;
@@ -231,7 +237,8 @@ body::before {
     background: transparent;
     color: #fff;
     font-size: 34px;
-    font-family: Quintessential;
+    font-family: Apple Chancery, Merriweather;
+    font-style: italic;
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
@@ -299,7 +306,8 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     right: 25px;
     bottom: 20px;
     color: #fff;
-    font-family: Quintessential, sans-serif;
+    font-family: Apple Chancery, Merriweather, sans-serif;
+    font-style: italic;
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -327,8 +335,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 }
 
 #settingsButton:hover {
-    transform: scale(1.08);
-    filter: brightness(1.15);
+    filter: brightness(0.75);
 }
 
 
@@ -473,10 +480,6 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     background: #484848;
 }
 
-.copy-url-btn:active {
-    transform: scale(0.98);
-}
-
 .copy-url-btn.copied {
     background: #4a4a4a;
 }
@@ -504,10 +507,6 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 
 .return-game-btn:hover {
     background: #fff;
-}
-
-.return-game-btn:active {
-    transform: scale(0.98);
 }
 
 .settings-divider {
@@ -1348,5 +1347,7 @@ document.addEventListener("keydown", (event) => {
 
 </script>
 
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"94c79d4d951745d085049dd7f2bbd8f8","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>
+   
