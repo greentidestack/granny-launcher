@@ -1,6 +1,6 @@
 # Granny 1 Launcher
-I do not own the web ports in the site, credits: [Yandex](https://yandex.com/games/app/granny-original-259805)   [Original](https://grannyfree.io/play/granny/)   [PC](https://granny1.io/granny.embed)
+I do not own the web ports in the site, you can view the URLs of the selected port in the settings after launching a version
 
 A launcher for different versions of web ported Granny 1
 
-Features: Interactive main menu screen, music, info about the versions, downloadable as a single HTML file with a very small size
+Features: Interactive main menu screen, music, looks like the real Granny mobile menu, info about versions, and versions that almost nobody has seen
