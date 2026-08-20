@@ -10,10 +10,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,100..900;1,100..900&display=swap'); 
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quintessential:ital,wght@0,100..900;1,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&family=Special+Elite&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&display=swap');
 
 * {
@@ -27,10 +26,7 @@
 html, body {
     width: 100%;
     height: 100%;
-    /* overflow: hidden; */
-    font-family: Apple Chancery, Merriweather, sans-serif;
-    font-size: 20px;
-    font-style: italic;
+    font-family: Quintessential, sans-serif;
     color: white;
     font-weight: bold;
     margin: 0;
@@ -76,8 +72,7 @@ body::before {
     background: transparent;
     color: #fff;
     font-size: 34px;
-    font-family:  Apple Chancery, Merriweather;
-    font-style: italic;
+    font-family: Quintessential;
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
@@ -120,19 +115,11 @@ body::before {
 }
 
 #bearTrap.closed {
-    /* Filler */
     filter: blur(2px);
 }
 
-@keyframes trapSnap {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.9); }
-    100% { transform: scale(1); }
-}
-
 #musicPrompt {
-    font-family:  Apple Chancery, Merriweather;
-    font-style: italic;
+    font-family: Quintessential;
     position: fixed;
     top: 25px;
     left: 50%;
@@ -209,15 +196,13 @@ body::before {
 .version-content {
     margin-left: 18px;
     font-size: 0.9rem;
-    font-family:  Apple Chancery, Merriweather;
-    font-style: italic;
+    font-family: Quintessential;
     margin-top: 6px;
     opacity: 1;
 }
 
 .options-header {
-    font-family:  Apple Chancery, Merriweather;
-    font-style: italic;
+    font-family: Quintessential;
     text-decoration: underline;
     font-style: italic;
     color: #b3b3b3;
@@ -238,8 +223,7 @@ body::before {
     background: transparent;
     color: #fff;
     font-size: 34px;
-    font-family:  Apple Chancery, Merriweather;
-    font-style: italic;
+    font-family: Quintessential;
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
@@ -260,11 +244,6 @@ body::before {
     position: relative;
     transition: 0.2s all ease;
 }
-
-/* input[type="checkbox"]:checked + .custom-checkbox {
-    background-color: #4CAF50; 
-    border-color: #4CAF50;
-} */
 
 .custom-checkbox:active {
     background-color: #c5c5c5;
@@ -293,7 +272,6 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     margin: 0 auto; 
 }
 
-
 #loadingScreen {
     position: fixed;
     inset: 0;
@@ -307,13 +285,11 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     right: 25px;
     bottom: 20px;
     color: #fff;
-    font-family:  Apple Chancery, Merriweather, sans-serif;
-    font-style: italic;
+    font-family: Quintessential, sans-serif;
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 1px;
 }
-
 
 #settingsButton {
     position: fixed;
@@ -336,9 +312,9 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 }
 
 #settingsButton:hover {
-    filter: brightness(0.75);
+    transform: scale(1.08);
+    filter: brightness(1.15);
 }
-
 
 #settingsOverlay {
     position: fixed;
@@ -347,7 +323,6 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     display: none;
     align-items: center;
     justify-content: center;
-
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -356,33 +331,15 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 #settingsPopup {
     width: min(480px, calc(100vw - 40px));
     padding: 26px;
-
     background: #292929;
     color: #fff;
-
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 14px;
-
     box-shadow:
         0 20px 60px rgba(0,0,0,0.6),
         0 0 0 1px rgba(255,255,255,0.03);
-
     font-family: 'Mozilla Text', Arial;
-
-    /*animation: settingsPopupIn 0.18s ease-out;*/
 }
-
-/*@keyframes settingsPopupIn {*/
-/*    from {*/
-/*        opacity: 0;*/
-/*        transform: scale(0.96) translateY(8px);*/
-/*    }*/
-
-/*    to {*/
-/*        opacity: 1;*/
-/*        transform: scale(1) translateY(0);*/
-/*    }*/
-/*}*/
 
 .settings-top {
     display: flex;
@@ -400,16 +357,12 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 .settings-close {
     width: 32px;
     height: 32px;
-
     border: none;
     border-radius: 8px;
-
     background: transparent;
     color: #aaa;
-
     font-size: 18px;
     cursor: pointer !important;
-
     transition:
         background 0.15s ease,
         color 0.15s ease;
@@ -427,7 +380,6 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 .settings-label {
     display: block;
     margin-bottom: 8px;
-
     color: #bdbdbd;
     font-size: 13px;
     font-weight: 600;
@@ -436,20 +388,15 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 .url-box {
     width: 100%;
     height: 32px;
-
     padding: 0 13px;
-
     border: none;
     outline: none;
     border-radius: 8px;
-
     background: #fff;
     color: #222;
-
     font-family: Arial, sans-serif;
     font-size: 13px;
     font-weight: normal;
-
     user-select: text;
     cursor: text;
 }
@@ -457,21 +404,15 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 .copy-url-btn {
     width: 100%;
     height: 40px;
-
     margin-top: 9px;
-
     border: none;
     border-radius: 8px;
-
     background: #3b3b3b;
     color: #fff;
-
-    font-family: 'Mozilla text', Arial, sans-serif;
+    font-family: 'Mozilla Text', Arial, sans-serif;
     font-size: 14px;
     font-weight: 600;
-
     cursor: pointer !important;
-
     transition:
         background 0.15s ease,
         transform 0.15s ease;
@@ -481,6 +422,10 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     background: #484848;
 }
 
+.copy-url-btn:active {
+    transform: scale(0.98);
+}
+
 .copy-url-btn.copied {
     background: #4a4a4a;
 }
@@ -488,19 +433,14 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 .return-game-btn {
     width: 100%;
     height: 42px;
-
     border: none;
     border-radius: 8px;
-
     background: #f0f0f0;
     color: #222;
-
     font-family: 'Mozilla Text', Arial, sans-serif;
     font-size: 14px;
     font-weight: 700;
-
     cursor: pointer !important;
-
     transition:
         background 0.15s ease,
         transform 0.15s ease;
@@ -510,10 +450,13 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     background: #fff;
 }
 
+.return-game-btn:active {
+    transform: scale(0.98);
+}
+
 .settings-divider {
     height: 1px;
     margin: 20px 0;
-
     background: rgba(255,255,255,0.08);
 }
 
@@ -524,13 +467,10 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     font-weight: normal;
 }
 
-
 #settingsOverlay button,
 #settingsOverlay input {
     box-sizing: border-box;
 }
-
-
 </style>
 </head>
 
@@ -544,11 +484,11 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 
 <div id="bg"></div>
 
-<audio id="menuMusic" loop> <!-- Main menu music -->
+<audio id="menuMusic" loop>
     <source src="https://www.image2url.com/r2/default/audio/1782163629626-5d13d2b5-e679-4fd6-99c6-03118956ecd2.mp3" type="audio/mpeg">
 </audio>
 
-<audio id="beartrap" preload="auto"> <!-- Beartrp sound -->
+<audio id="beartrap" preload="auto">
     <source src="https://www.image2url.com/r2/default/audio/1782163592949-7fc0cf5c-e9b1-4764-80e4-9bdcf467656a.wav" type="audio/mpeg">
 </audio>
 
@@ -611,14 +551,12 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     </object>
 </div>
 
-
 <button id="settingsButton" type="button">
     <img
-        src="https://cdn.imageurlgenerator.com/uploads/5ca9fcae-dd52-41ba-8812-8749e0600df9.webp"
+        src="https://static.wikia.nocookie.net/granny/images/5/5d/OptionButtonInGame.png/revision/latest/scale-to-width-down/250?cb=20250620200059"
         title="Settings"
         alt="Settings">
 </button>
-
 
 <div id="settingsOverlay">
 
@@ -638,12 +576,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
             </button>
         </div>
 
-
         <div class="settings-section">
-            
-            
-        <div class="settings-section">
-
             <button
                 id="returnLauncherButton"
                 class="return-game-btn"
@@ -651,126 +584,93 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
                 <i class="fa-solid fa-arrow-left" style="margin-right: 7px;"></i>
                 Return to Launcher
             </button>
-
         </div>
-
-        </div>
-
 
         <div class="settings-divider"></div>
 
+        <label class="settings-label" for="gameUrl">
+            Game frame URL
+        </label>
 
-            <label class="settings-label" for="gameUrl">
-                Game frame URL
-            </label>
+        <input
+            id="gameUrl"
+            class="url-box"
+            type="text"
+            readonly
+            value="">
 
-            <input
-                id="gameUrl"
-                class="url-box"
-                type="text"
-                readonly
-                value="">
-
-            <button
-                id="copyUrlButton"
-                class="copy-url-btn"
-                type="button">
-                <i class="fa-regular fa-copy" style="margin-right: 6px;"></i>
-                Copy URL
-            </button>
+        <button
+            id="copyUrlButton"
+            class="copy-url-btn"
+            type="button">
+            <i class="fa-regular fa-copy" style="margin-right: 6px;"></i>
+            Copy URL
+        </button>
     </div>
 
 </div>
-
 
 <div id="loadingScreen">
     <div id="loadingText">Loading.</div>
 </div>
 
-
-<script> 
-
+<script>
 const versionInfoData = {
-
     yandex: {
         title: "Yandex",
         text: "*Recommended version<br>*Faster crouch movement<br>*Hide under tables and cabinets<br>*Sound plays after pausing the game"
     },
-
     original: {
         title: "Original",
         text: "*Stable version<br>*No ads or bloat<br>*None of Yandex's features except sound"
     },
-
     pcport: {
         title: "PC Port",
         text: "*Granny PC Version 1.7<br>*Much better graphics<br>*Some bugs and less sound effects"
     },
-
     mobileport: {
         title: "Mobile Port",
         text: "*Mobile version Granny 1.7<br>*Controls are horrible<br>*Has ads<br>*Not recommended"
     },
-
     yandex2: {
         title: "Yandex 2",
         text: "*Slightly different version of Yandex 1<br>*Different main menu<br>*Gameplay is the same<br>*Sound does not play after pausing the game."
     }
-
 };
-
 
 const versionSelect = document.getElementById("versionSelect");
 const dynamicHeaderTitle = document.getElementById("dynamicHeaderTitle");
 const dynamicTitle = document.getElementById("dynamicTitle");
 const dynamicText = document.getElementById("dynamicText");
 
-
 function updateVersionInfo(selectedKey) {
-
     const data = versionInfoData[selectedKey];
 
     if (data) {
-
         dynamicText.style.opacity = 0;
 
         setTimeout(() => {
-
             dynamicHeaderTitle.textContent = data.title;
             dynamicTitle.textContent = data.title;
             dynamicText.innerHTML = data.text;
             dynamicText.style.opacity = 1;
-
         }, 150);
-
     }
-
 }
 
-
-// local storge version saving
 const savedVersion = localStorage.getItem("SelectedVersion");
 
 if (savedVersion) {
-
     versionSelect.value = savedVersion;
     updateVersionInfo(savedVersion);
-
 } else {
-
     updateVersionInfo(versionSelect.value);
-
 }
 
-
 versionSelect.addEventListener("change", () => {
-
     localStorage.setItem("SelectedVersion", versionSelect.value);
-
     updateVersionInfo(versionSelect.value);
-
 });
-
 
 const loadingScreen = document.getElementById("loadingScreen");
 const loadingText = document.getElementById("loadingText");
@@ -778,9 +678,7 @@ const loadingText = document.getElementById("loadingText");
 let loadingInterval = null;
 let loadingTimeout = null;
 
-
 function showLoadingScreen() {
-
     clearInterval(loadingInterval);
     clearTimeout(loadingTimeout);
 
@@ -790,127 +688,102 @@ function showLoadingScreen() {
     loadingScreen.style.display = "block";
 
     loadingInterval = setInterval(() => {
-
         dots++;
 
         if (dots > 3) dots = 1;
 
         loadingText.textContent =
             "Loading" + ".".repeat(dots);
-
     }, 150);
 
-
     loadingTimeout = setTimeout(() => {
-
         clearInterval(loadingInterval);
-
         loadingInterval = null;
-
         loadingScreen.style.display = "none";
-
     }, 2000);
-
 }
 
-
-const gameFrame =
-    document.querySelector("#embedContainer object");
+let gameFrame = document.querySelector("#embedContainer object");
 
 function updateGameUrlDisplay() {
-
-    const currentUrl = gameFrame.data || "";
-
+    const currentUrl = gameFrame && gameFrame.data ? gameFrame.data : "";
     document.getElementById("gameUrl").value = currentUrl;
-
 }
 
+function createFreshGameFrame(url) {
+    const embedContainer = document.getElementById("embedContainer");
+    const oldFrame = embedContainer.querySelector("object");
 
+    if (oldFrame) {
+        oldFrame.remove();
+    }
+
+    const newFrame = document.createElement("object");
+
+    newFrame.data = url;
+    newFrame.style.width = "100%";
+    newFrame.style.height = "100%";
+    newFrame.style.border = "none";
+
+    embedContainer.appendChild(newFrame);
+
+    gameFrame = newFrame;
+
+    return newFrame;
+}
 
 document.getElementById("launchBtn").addEventListener("click", () => {
-
     const version =
         document.getElementById("versionSelect").value;
 
     localStorage.setItem("SelectedVersion", version);
 
+    let gameUrl = "";
 
     if (version === "yandex") {
-
-        gameFrame.data =
+        gameUrl =
             "https://st.8games.net/7/igra-grenni-original/";
-
     }
-
 
     if (version === "yandex2") {
-
-        gameFrame.data = 
+        gameUrl =
             "https://app-259805.games.s3.yandex.net/259805/fadb3yakgje68vxwmy7a1khmb3vj9vxc_brotli/index.html?sdk=%2Fsdk%2F_%2Fv2.97c96d6acac215f69e1d.js#origin=https%3A%2F%2Fyandex.com&app-id=259805&device-type=desktop";
-
     }
-
 
     if (version === "original") {
-
-        gameFrame.data =
+        gameUrl =
             "http://granny.gg/content/uploads/granny/index.html";
-
-        // old links i used:
-        // https://grannyfree.io/play/granny/ original, but its an iframe
-        // https://a.luminsdk.com/g/1782245938-zvb9IWFpeBv1Yjnr2wvlKNlEiJz1KQwrELC6eT839lU/selenite/granny1/index.html doesnt work bc of cloudflare
-
     }
-
 
     if (version === "pcport") {
-
-        gameFrame.data = 
+        gameUrl =
             "https://horrorgames.io/granny-horror.embed";
-
-        // https://granny1.io/granny.embed
-        // https://1games.io/game/granny-horror/ (alt if granny1.io stops working)
-        // horrorgames.io/granny-horror.embed (alt 2)
-        // https://games.yoplay.io/granny-horror/?v=1 (alt 3)
-        // http://greentidestack.github.io/GrannyWeb-fork/index.html (horrible port but works... kinda)
-
     }
-
 
     if (version === "mobileport") {
-
-        gameFrame.data =
+        gameUrl =
             "http://cdn.vietdp.com/file/vietdp-games/games/t12026/granny-3/index.html";
-
     }
 
+    createFreshGameFrame(gameUrl);
     updateGameUrlDisplay();
-
 
     document.getElementById("embedContainer").style.display = "block";
 
     showLoadingScreen();
-
 });
-
-
-// Beartrap
 
 const trap = document.getElementById("bearTrap");
 const beartrapAudio = document.getElementById("beartrap");
 
-beartrapAudio.volume = 1; 
-
+beartrapAudio.volume = 1;
 
 trap.addEventListener("click", () => {
-
     if (trap.classList.contains("closed")) return;
 
-    if (enableSoundCheckbox.checked) { 
-
+    if (enableSoundCheckbox.checked) {
         beartrapAudio.currentTime = 0;
         beartrapAudio.play();
-
     }
 
     trap.src =
@@ -920,108 +793,68 @@ trap.addEventListener("click", () => {
     trap.style.left = "723px";
 
     trap.classList.add("closed");
-
 });
-
-
-// Menu Music
 
 const menuMusic = document.getElementById("menuMusic");
 const musicPrompt = document.getElementById("musicPrompt");
 
-
 document.addEventListener("click", (e) => {
-
     if (e.target.closest("#launchBtn")) {
-
         musicPrompt.classList.add("hide");
 
         setTimeout(() => {
-
             if (musicPrompt.parentNode) {
                 musicPrompt.remove();
             }
-
         }, 400);
 
         return;
-
     }
 
-
-    if (enableMusicCheckbox.checked) { 
-
+    if (enableMusicCheckbox.checked) {
         menuMusic.play();
-
     }
-
 
     musicPrompt.classList.add("hide");
 
     setTimeout(() => {
-
         if (musicPrompt.parentNode) {
             musicPrompt.remove();
         }
-
     }, 400);
-
 }, { once: true });
 
-
-
 document.getElementById("launchBtn").addEventListener("click", () => {
-
     const version =
         document.getElementById("versionSelect").value;
 
     document.title =
-        versionTitles[version] || "Granny 1 Launcher"; 
-
+        versionTitles[version] || "Granny 1 Launcher";
 
     if (enableMusicCheckbox.checked) {
-
         menuMusic.pause();
         menuMusic.currentTime = 0;
-
     }
-
-
-    window.addEventListener('beforeunload', function (event) {
-
-        event.preventDefault();
-        event.returnValue = ''; 
-
-    });
-
 });
-
-
-// Parallax background effect
 
 const bg = document.getElementById("bg");
 
 document.addEventListener("mousemove", (e) => {
-
     const x =
         (e.clientX / window.innerWidth - 0.5) * 5;
 
     const y =
         (e.clientY / window.innerHeight - 0.5) * 5;
 
-
     bg.style.transform =
         `translate(${-x}px, ${-y}px)`;
 
     trap.style.transform =
         `translate(${-x}px, ${-y}px)`;
-
 });
 
 document.getElementById("back").addEventListener("click", function() {
-
-    window.location.href = "index.html"; 
-
+    window.location.href = "index.html";
 });
 
 const enableSoundCheckbox =
@@ -1030,88 +863,72 @@ const enableSoundCheckbox =
 const enableMusicCheckbox =
     document.getElementById("enableMusic");
 
-
 const savedSoundState =
     localStorage.getItem("enableSound");
 
 const savedMusicState =
     localStorage.getItem("enableMusic");
 
-
 if (savedSoundState !== null) {
-
     enableSoundCheckbox.checked =
-        savedSoundState === 'true'; 
-
+        savedSoundState === 'true';
 }
-
 
 if (savedMusicState !== null) {
-
     enableMusicCheckbox.checked =
-        savedMusicState === 'true'; 
-
+        savedMusicState === 'true';
 }
 
+if (!enableSoundCheckbox.checked) {
+    beartrapAudio.volume = 0;
+}
+
+if (!enableMusicCheckbox.checked) {
+    menuMusic.pause();
+}
 
 enableSoundCheckbox.addEventListener("change", () => {
-
     if (enableSoundCheckbox.checked) {
-
-        beartrapAudio.volume = 1; 
+        beartrapAudio.volume = 1;
 
         localStorage.setItem(
             "enableSound",
             'true'
-        ); 
-
+        );
     } else {
-
-        beartrapAudio.volume = 0; 
+        beartrapAudio.volume = 0;
 
         localStorage.setItem(
             "enableSound",
             'false'
-        ); 
-
+        );
     }
-
 });
 
-
 enableMusicCheckbox.addEventListener("change", () => {
-
     if (enableMusicCheckbox.checked) {
-
         menuMusic.play();
 
         localStorage.setItem(
             "enableMusic",
             'true'
-        ); 
-
+        );
     } else {
-
-        menuMusic.pause(); 
+        menuMusic.pause();
 
         localStorage.setItem(
             "enableMusic",
             'false'
-        ); 
-
+        );
     }
-
 });
 
-
 const versionTitles = {
-
     yandex: "Playing Granny...",
     original: "Playing Granny Original...",
     pcport: "Playing Granny PC...",
     mobileport: "Playing Granny Mobile...",
     yandex2: "Playing Granny..."
-
 };
 
 const settingsButton =
@@ -1132,145 +949,95 @@ const gameUrl =
 const copyUrlButton =
     document.getElementById("copyUrlButton");
 
-
-// Le settings popup
 settingsButton.addEventListener("click", (event) => {
-
     event.stopPropagation();
 
     updateGameUrlDisplay();
 
     settingsOverlay.style.display = "flex";
-
 });
-
-
 
 closeSettings.addEventListener("click", () => {
-
     settingsOverlay.style.display = "none";
-
 });
 
-
-
 settingsOverlay.addEventListener("click", (event) => {
-
     if (event.target === settingsOverlay) {
-
         settingsOverlay.style.display = "none";
-
     }
-
 });
 
 copyUrlButton.addEventListener("click", async () => {
-
     const url = gameUrl.value;
 
     if (!url) return;
 
-
     try {
-
         await navigator.clipboard.writeText(url);
-
     } catch (error) {
-
         gameUrl.select();
         gameUrl.setSelectionRange(0, 99999);
-
         document.execCommand("copy");
-
     }
-
 
     copyUrlButton.innerHTML =
         '<i class="fa-solid fa-check" style="margin-right: 6px;"></i>Copied!';
 
     copyUrlButton.classList.add("copied");
 
-
     setTimeout(() => {
-
         copyUrlButton.innerHTML =
             '<i class="fa-regular fa-copy" style="margin-right: 6px;"></i>Copy URL';
 
         copyUrlButton.classList.remove("copied");
-
     }, 1500);
-
 });
-
-
-// Keyvoard controls
 
 const gameEmbed =
     document.getElementById("embedContainer");
 
 let gameIsOpen = false;
 
-
 function showSettingsButton() {
-
     gameIsOpen = true;
-
     settingsButton.style.display = "block";
-
 }
 
-
 function returnToLauncher() {
+    clearInterval(loadingInterval);
+    clearTimeout(loadingTimeout);
 
-    clearInterval(
-        typeof loadingInterval !== "undefined"
-            ? loadingInterval
-            : null
-    );
-
-    clearTimeout(
-        typeof loadingTimeout !== "undefined"
-            ? loadingTimeout
-            : null
-    );
-
-
-    if (typeof loadingScreen !== "undefined") {
-
-        loadingScreen.style.display = "none";
-
-    }
-
-
+    loadingScreen.style.display = "none";
     settingsOverlay.style.display = "none";
-
-
-
     gameEmbed.style.display = "none";
-
     settingsButton.style.display = "none";
 
     gameIsOpen = false;
 
+    const oldFrame =
+        gameEmbed.querySelector("object");
 
-    gameFrame.data = "about:blank";
-
-
-    if (
-        typeof enableMusicCheckbox !== "undefined" &&
-        enableMusicCheckbox.checked &&
-        typeof menuMusic !== "undefined"
-    ) {
-
-        menuMusic.currentTime = 0;
-
-        menuMusic.play().catch(() => {});
-
+    if (oldFrame) {
+        oldFrame.remove();
     }
 
+    const freshBlankFrame =
+        document.createElement("object");
+
+    freshBlankFrame.data = "about:blank";
+    freshBlankFrame.style.width = "100%";
+    freshBlankFrame.style.height = "100%";
+    freshBlankFrame.style.border = "none";
+
+    gameEmbed.appendChild(freshBlankFrame);
+
+    gameFrame = freshBlankFrame;
+
+    if (enableMusicCheckbox.checked) {
+        menuMusic.currentTime = 0;
+        menuMusic.play().catch(() => {});
+    }
 }
-
-
 
 returnLauncherButton.addEventListener(
     "click",
@@ -1278,15 +1045,10 @@ returnLauncherButton.addEventListener(
 );
 
 document.getElementById("launchBtn").addEventListener("click", () => {
-
     showSettingsButton();
-
 });
 
-
 document.addEventListener("keydown", (event) => {
-
-
     if (settingsOverlay.style.display === "flex") {
         return;
     }
@@ -1294,43 +1056,33 @@ document.addEventListener("keydown", (event) => {
     const versionSelect =
         document.getElementById("versionSelect");
 
-
-    if (event.key === "Enter") {
-
+    if (event.key === "Enter" && !gameIsOpen) {
         event.preventDefault();
 
         document.getElementById("launchBtn").click();
 
         return;
-
     }
-
 
     if (
         (event.key === "ArrowUp" ||
          event.key === "ArrowDown") &&
-        document.activeElement === versionSelect
+        document.activeElement === versionSelect &&
+        !gameIsOpen
     ) {
-
         const count =
             versionSelect.options.length;
 
         let index =
             versionSelect.selectedIndex;
 
-
         if (event.key === "ArrowDown") {
-
             index =
                 (index + 1) % count;
-
         } else {
-
             index =
                 (index - 1 + count) % count;
-
         }
-
 
         versionSelect.selectedIndex =
             index;
@@ -1340,15 +1092,9 @@ document.addEventListener("keydown", (event) => {
         );
 
         event.preventDefault();
-
     }
-
 });
-
-
 </script>
 
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"94c79d4d951745d085049dd7f2bbd8f8","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>
-   
