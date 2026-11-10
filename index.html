@@ -17,6 +17,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&family=Special+Elite&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Quintessential&family=Special+Elite&display=swap');
 
+@font-face {
+    font-family: 'TeX Gyre Chorus';
+    src: url('texgyrechorus-mediumitalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+    
 * {
     margin: 0;
     padding: 0;
@@ -39,7 +47,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* The background is attached here to stay perfectly centered without layout shifts */
     background: url('https://i.imgur.com/WxOwemZ.png') center center / 110% 110% no-repeat black;
 }
 
@@ -111,7 +118,7 @@ body::before {
     max-width: 500px;
     position: relative;
     text-align: center;
-    font-family: Quintessential;
+    font-family: 'Monotype Corsiva', 'Apple Chancery', 'TeX Gyre Chorus';
 }
 
 .close-btn {
@@ -175,12 +182,10 @@ document.addEventListener("click", (e) => {
     menuMusic.play();
 }, { once: true });
 
-// New robust tracking method using background position percentage shifting
 document.addEventListener("mousemove", (e) => {
     const x = (e.clientX / window.innerWidth) * 70;
     const y = (e.clientY / window.innerHeight) * 70;
 
-    // Maps cursor movements into a safe 45% - 55% range so edges never show
     const backgroundX = 50 + (x - 50) * 0.1;
     const backgroundY = 50 + (y - 50) * 0.1;
 
